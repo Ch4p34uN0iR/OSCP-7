@@ -1,4 +1,5 @@
 #! /usr/bin/ruby
+# run masscan against targets and call nmap with found ports
 require 'optparse'
 
 options = {:ports => nil, :ip => nil}
