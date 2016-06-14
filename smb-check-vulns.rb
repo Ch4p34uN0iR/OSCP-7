@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 # = smb-check-vulns has been removed, this will iterate over all nse smb scripts to perhaps save some time - can extend this to any nse script later
-# = add nse scripts to scripts hash below 
+# = add nse scripts to scripts array below 
 
 require 'optparse'
 
