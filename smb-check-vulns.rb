@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 # = smb-check-vulns has been removed, this will iterate over all nse smb scripts to perhaps save some time - can extend this to any nse script later
-# = add nse scripts to scripts array below 
+# = add nse scripts to scripts hash below 
 
 require 'optparse'
 
@@ -32,7 +32,7 @@ def check_vulns
 end
 
 def format_output
-	@output.each{|result| puts result.partition("VULNERABLE:").first.partition("scanning").last + result.partition("VULNERABLE:").last.partition("Nmap done:").first if result.include?("VULNERABLE")}
+	@output.each{|result| puts result.partition("VULNERABLE:").first.partition("report for ").last + result.partition("VULNERABLE:").last.partition("NSE: Script Post").first if result.include?("VULNERABLE")}
 end
 
 check_vulns
