@@ -32,7 +32,7 @@ def check_vulns
 end
 
 def format_output
-	@output.each{|result| puts result.partition("VULNERABLE:").first.partition("report for ").last + result.partition("VULNERABLE:").last.partition("NSE: Script Post").first if result.include?("VULNERABLE")}
+	@output.each{|result| puts "\n" + result.partition("VULNERABLE:").first.partition("report for ").last + result.partition("VULNERABLE:").last.partition("NSE: Script Post").first if result.include?("VULNERABLE")}
 end
 
 check_vulns
