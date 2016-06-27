@@ -51,8 +51,8 @@ end.parse!
 
 @host    = options[:host]
 @hosts   = options[:hosts]
-@cmds    = options[:cmds]  || 'VRFY'
-@ports   = options[:ports] || 25
+@cmds    = options[:cmds]  || ['VRFY']
+@ports   = options[:ports] || [25]
 @user    = options[:user]
 @users   = options[:users]
 @verbose = options[:verbose]
