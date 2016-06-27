@@ -1,4 +1,7 @@
 #!/usr/bin/ruby
+# smtp-enum.rb -x VRFY,EXPN -t 192.168.90.143 -U "/root/users.txt" -p 25,114
+# smtp-enum.rb -H "/root/hosts.txt" -u root
+# smtp-enum.rb -v -x VRFY,EXPN -H "/root/hosts.txt" -U "/root/users.txt" -p 25,114,139,200
 
 require 'optparse'
 require 'socket'
@@ -8,19 +11,19 @@ summary = ""
 
 ARGV.push("-h") if ARGV.empty?
 parser = OptionParser.new do|opts|
-	opts.banner = "[+] Usage: smtp-enum.rb [options]\n" \
+  opts.banner = "[+] Usage: smtp-enum.rb [options]\n" \
                 "[+] Ex: smtp-enum.rb -t 192.168.190.40 -U users.txt"
-	opts.on("-t", "--host ip", "target ip address") do |ip|
-		options[:host] = ip
-	end
+  opts.on("-t", "--host ip", "target ip address") do |ip|
+    options[:host] = ip
+  end
 
   opts.on("-H", "--Hosts ips", "file of target ip addresses") do |ips|
-		options[:hosts] = ips
-	end
+    options[:hosts] = ips
+  end
 
   opts.on("-x", "--cmd x,y", Array, "comma seperated list of smtp commands VRFY,EXPN - default VRFY") do |cmd|
-		options[:cmds] = cmd
-	end
+    options[:cmds] = cmd
+  end
 
   opts.on("-p","--ports x,y",Array, "port or ports to scan comma seperated - default 25") do |port|
     options[:ports] = port
@@ -39,9 +42,9 @@ parser = OptionParser.new do|opts|
   end
 
   opts.on('-h', '--help', 'displays Help') do
-		puts opts
-		exit
-	end
+    puts opts
+    exit
+  end
   summary = opts.summarize
 end.parse!
 
